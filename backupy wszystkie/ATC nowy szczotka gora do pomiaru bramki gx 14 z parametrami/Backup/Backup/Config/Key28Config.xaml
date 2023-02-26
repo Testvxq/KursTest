@@ -1,0 +1,111 @@
+﻿<!-- 按键说明:
+  		AUX键：						数字键：				OPT功能键：    
+		VK_AUX_SHIFT：shift键				VK_NUM_0：0				VK_OPT_ORIGN：回原点
+		VK_AUX_OK：OK					VK_NUM_1：1				VK_OPT_FIXED：回固定点
+		VK_AUX_ESC：取消				VK_NUM_2：2				VK_OPT_XP：X+
+		VK_AUX_UP：上					VK_NUM_3：3				VK_OPT_XN：X-
+		VK_AUX_DOWN：下					VK_NUM_4：4				VK_OPT_YP：Y+
+		VK_AUX_LEFT：左					VK_NUM_5：5				VK_OPT_YN：Y-
+		VK_AUX_RIGHT：右				VK_NUM_6：6				VK_OPT_ZP：Z+
+								VK_NUM_7：7				VK_OPT_ZN：Z-
+								VK_NUM_8：8				VK_OPT_X0：X清零
+								VK_NUM_9：9				VK_OPT_Y0：Y清零
+								VK_NUM_DOT：小数点(.)			VK_OPT_Z0：Z清零
+								VK_NUM_NEG：负号(-)			VK_OPT_XY0：XY清零
+													VK_OPT_MULDOWN：倍率减
+													VK_OPT_MULUP：倍率加
+													VK_OPT_SPINDOWN：主轴档位减
+	 												VK_OPT_SPINUP：主轴档位加
+													VK_OPT_SPEEDHIGH：手动高低速
+													VK_OPT_HOME：回机械原点
+													VK_OPT_COORDINATE：工件坐标与机械坐标的显示切换
+													VK_OPT_AUTOCALIBRATE：浮动对刀
+													VK_OPT_STOP：停止
+													VK_OPT_SPINON：主轴开关
+													VK_OPT_MENU：菜单			
+													VK_OPT_HELP：帮助
+													VK_OPT_PAUSE：暂停
+													VK_OPT_JIGGLE：微调
+													VK_OPT_K1：K1
+													VK_OPT_K2：K2
+													VK_OPT_START：开始
+													VK_OPT_RESUME：断点继续
+													VK_OPT_CALIBRATECUTTER_FIRST：第一次对刀
+													VK_OPT_CALIBRATECUTTER_SECOND：第二次对刀
+													VK_OPT_AUTOSETTOOLLENGTH：自动测量刀具长度
+													VK_OPT_TOOLONOFF：手动松夹刀
+													VK_OPT_CURFILEINFO：加工信息
+													VK_OPT_SHIFT1 ~ VK_OPT_SHIFT5 :15组自定义组合按键
+													VK_OPT_SIMULATE：仿真加工范围
+													VK_OPT_TOOLSET: 设置刀具长度
+		
+	说明：
+	    KeyLogic: 按键的逻辑地址，对应一个按键。
+	    每一个按键可能对应三个功能键，分别是AuxNum，Opt，还有shift组合功能键Shift。分别设置对应的功能按键。设置空表示没有功能。
+	    AuxNum：AUX功能键和数字键
+	    Opt:Opt功能键
+            Shift：Shift组合键。
+	    Down：↓键组合键(G3不建议使用)。
+ 	注意：
+	    1.AuxNum键只能设置数字功能VK_NUM_0 ~ VK_NUM_9, VK_NUM_DOT, VK_NUM_NEG和AUX功能VK_AUX_SHIFT, VK_AUX_OK，VK_AUX_ESC，VK_AUX_LEFT，VK_AUX_UP，VK_AUX_RIGHT，VK_AUX_DOWN.
+	      功能键Opt只能设置Opt功能。
+	    2.shift按键功能AuxNum="VK_AUX_SHIFT"不能改变，而且只能与KeyLogic="0"在一行。
+	      菜单键功能Opt="VK_OPT_MENU"建议不改变（只能与KeyLogic="17"在一行）。
+	    3.X+,X-,Y+,Y-,Z+,Z-不能作为shift组合键和↓键组合键。
+	    4.AUX键上、下、左、右、OK、ESC、SHIFT键不能与数字键复用。帮助键VK_OPT_HELP不能和数字键，AUX键复用。
+	    5.VK_AUX_DOWN键和VK_AUX_SHIFT键不能放在↓键组合键中。
+
+	    6.InfoCHN中文描述信息中中文智能从偶数字符开始，一个中文占2个字符，一个英文占1个字符，当一个英文字符在奇数字符时，后面跟中文字符 ，可以用空格补齐。
+	      如InfoCHN="Shift+XY0: X轴坐标清零"，X前面有一个空格。
+	    7.InfoENG英文描述信息中，每14个字符换一行显示，单词换行请注意手动添加空格换行。
+	修改原则：同一页面同一时刻一个按键不能同时响应两个种功能。
+-->
+
+<KEY>
+	<INFO  KeyLogic="0"	AuxNum="VK_AUX_SHIFT"		Opt=""				Shift="" />
+	<INFO  KeyLogic="1"	AuxNum="VK_NUM_0"		Opt="VK_OPT_ORIGN"		Shift="VK_OPT_FIXED" 				Down=""/>
+	<INFO  KeyLogic="2"	AuxNum="VK_NUM_1"		Opt=""				Shift="" />
+	<INFO  KeyLogic="3"	AuxNum="VK_NUM_2"		Opt="VK_OPT_YN"			Shift="" />
+	<INFO  KeyLogic="4"	AuxNum="VK_NUM_3"		Opt="VK_OPT_ZN"			Shift="" />
+	<INFO  KeyLogic="5"	AuxNum=""			Opt="VK_OPT_Z0"			Shift="VK_OPT_Y0" />
+	<INFO  KeyLogic="6"	AuxNum="VK_NUM_DOT"		Opt="VK_OPT_MULDOWN"		Shift="VK_OPT_SPINDOWN" />
+	<INFO  KeyLogic="7"	AuxNum="VK_NUM_4"		Opt="VK_OPT_XN"			Shift="" />
+	<INFO  KeyLogic="8"	AuxNum="VK_NUM_5"		Opt="VK_OPT_SPEEDHIGH"		Shift="" />
+	<INFO  KeyLogic="9"	AuxNum="VK_NUM_6"		Opt="VK_OPT_XP"			Shift="VK_OPT_AUTOSETTOOLLENGTH" />
+	<INFO  KeyLogic="10"	AuxNum=""			Opt="VK_OPT_XY0"		Shift="VK_OPT_X0" />
+	<INFO  KeyLogic="11"	AuxNum="VK_NUM_NEG"		Opt="VK_OPT_MULUP"		Shift="VK_OPT_SPINUP" />
+	<INFO  KeyLogic="12"	AuxNum="VK_NUM_7"		Opt=""				Shift="VK_OPT_HOME" />
+	<INFO  KeyLogic="13"	AuxNum="VK_NUM_8"		Opt="VK_OPT_YP"			Shift="VK_OPT_COORDINATE" />
+	<INFO  KeyLogic="14"	AuxNum="VK_NUM_9"		Opt="VK_OPT_ZP"			Shift="VK_OPT_AUTOCALIBRATE" />
+	<INFO  KeyLogic="15"	AuxNum=""			Opt="VK_OPT_STOP"		Shift="" />
+	<INFO  KeyLogic="16"	AuxNum=""			Opt="VK_OPT_SPINON"		Shift="" />
+	<INFO  KeyLogic="17"	AuxNum=""			Opt="VK_OPT_MENU"		Shift="VK_OPT_HELP" />
+	<INFO  KeyLogic="18"	AuxNum="VK_AUX_ESC"		Opt=""				Shift="" />
+	<INFO  KeyLogic="19"	AuxNum=""			Opt="VK_OPT_PAUSE"		Shift="VK_OPT_JIGGLE" />
+	<INFO  KeyLogic="20"	AuxNum=""			Opt="VK_OPT_K2"			Shift="" />
+	<INFO  KeyLogic="21"	AuxNum="VK_AUX_DOWN"		Opt=""				Shift="" />
+	<INFO  KeyLogic="22"	AuxNum="VK_AUX_LEFT"		Opt=""				Shift="" />
+	<INFO  KeyLogic="23"	AuxNum="VK_AUX_OK"		Opt="VK_OPT_CURFILEINFO"	Shift="" />
+	<INFO  KeyLogic="24"	AuxNum="VK_AUX_RIGHT"		Opt=""				Shift="" />
+	<INFO  KeyLogic="25"	AuxNum=""			Opt="VK_OPT_START"		Shift="VK_OPT_RESUME" />
+	<INFO  KeyLogic="26"	AuxNum=""			Opt="VK_OPT_K1"			Shift="" />
+	<INFO  KeyLogic="27"	AuxNum="VK_AUX_UP"		Opt=""				Shift="" />
+
+	<!--Shift快捷键说明，英文间空格不能去掉-->
+	<SHIFTINFO	InfoCHN="K1: 手动松夹刀"			     	InfoENG="K1:Spindle    tool ON or OFF"/>
+	<SHIFTINFO	InfoCHN="K2: 防尘罩"			        	InfoENG="K2:Dustcover"/>
+	<SHIFTINFO	InfoCHN="Shift+0:回固定点"					InfoENG="Shift+0:back  to fixed point"/>
+	<SHIFTINFO	InfoCHN="Shift+6:测量刀具长度"			InfoENG="Shift+6:Auto  set tool      length"/>
+	<SHIFTINFO	InfoCHN="Shift+7:回机械原点"				InfoENG="Shift+7:back  to reference  point"/>
+	<SHIFTINFO	InfoCHN="Shift+8:工件坐标与机械坐标的显示切换"		InfoENG="Shift+8:switchbetween WCS   display and   MCS display"/>
+	<SHIFTINFO	InfoCHN="Shift+9:对刀"							InfoENG="Shift+9:tool  calibration"/>
+	<SHIFTINFO	InfoCHN="Shift+XY=0:X轴坐标清零"		InfoENG="Shift+XY=0:   clear X       coordinate"/>
+	<SHIFTINFO	InfoCHN="Shift+Z=0: Y轴坐标清零"		InfoENG="Shift+Z=0:    clear Y       coordinate"/>	
+	<SHIFTINFO	InfoCHN="Shift+-:主轴档位增加"			InfoENG="Shift+-:      increase      spindle gears"/>
+	<SHIFTINFO	InfoCHN="Shift+.:主轴档位减小"			InfoENG="Shift+.:      decrease      spindle gears"/>
+	<SHIFTINFO	InfoCHN="Shift+暂停: 暂停微调"			InfoENG="Shift+Pause:  pause jiggle"/>
+	<SHIFTINFO	InfoCHN="Shift+菜单: 显示帮助信息"	InfoENG="Shift+Menu:   display help  info"/>
+	<SHIFTINFO	InfoCHN="Shift+开始：断点继续"			InfoENG="Shift+Start:  breakpoint    resuming"/>
+	<SHIFTINFO	InfoENG="Abbreviation: REF.:Referencepoint         SOff:Spindle  Off           LmitRls.:LimitRelease"/>
+
+</KEY>

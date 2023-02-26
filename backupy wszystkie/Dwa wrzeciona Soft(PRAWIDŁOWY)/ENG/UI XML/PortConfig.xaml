@@ -1,0 +1,87 @@
+﻿<!-- 
+    端口地址映射表：
+     LogicAddr  为端口逻辑地址
+     PhysicAddr 为端口物理地址
+     Polarity  端口极性，0 表示N极性， 1表示P极性
+     Display  是否在诊断页面下端口列表中显示该端口 0：不显示  1：显示
+     Attribute :输入端口  0通用输入端口(默认)       1警停端口 2限位端口 
+	        输出端口  10 正常输出端口(默认)   11复位属性的输出端口   12主轴输出端口
+
+     注:
+	①.输入或输入的逻辑地址，物理地址不能相同。物理地址为-1表示该端口功能未使用。
+	②.所有输出端口的顺序必须在输入端口之后。
+	③.扩展功能（程序开始，程序停止，对刀行程保护，三色灯功能）逻辑地址不能修改。
+	④.档位输出端口必须从高档位到低档位屏蔽。修改档位输出端口后必须修改必须把参数“主轴档位数”修改成对应的档位。
+	
+     Port Address Mapping Table:
+	LogicAddr ：	Logic Port Address
+	PhysicAddr：	Physical Port Address
+	Polarity： 	Port Polarity	0：Polarity N			1：Polarity P 
+	Display ： 	Display the port or not in the I/O list on the Diagnosis page		0:Display	1：Not Display
+	Attribute： 	Input Ports	0：General Input(default)	1：E-stop Input		2： Limit Input
+			Output Ports  	10：General Output (default)	11：Reset Output	12：Spindle Output
+
+     Note：
+	①.Logic address and physical address of the inputs and outputs can not be duplicate. Physical address being -1 means port extended function is not functional now.
+	②.All outports must be listed after the input ports.
+	③.Logic address of extended functions(including Cycle Start, Cycle Stop, Overtravel Protection of Tool Measurement, Red-Green-Yellow Lights Function ) won't allow to be changed.
+	④.Spindle Gear Outputs, they can only be shielded from Higher Gear to lower. The parameter "Spindle Gear Number" must be modified into corresponding number after Spindle Gear Outputs being changed.
+	
+-->
+
+<Port>
+	<INFO  Director="INPORT"  Name="GX01(XORG)"     LogicAddr="0"    PhysicAddr="11"  Attribute="0"  Polarity="0"   Display="1"  Text="X ORG"/>
+	<INFO  Director="INPORT"  Name="GX02(XLIM+)"    LogicAddr="1"    PhysicAddr="12"  Attribute="2"  Polarity="0"   Display="1"  Text="X Limit+"/>
+	<INFO  Director="INPORT"  Name="GX03(XLIM-)"    LogicAddr="2"    PhysicAddr="13"  Attribute="2"  Polarity="0"   Display="1"  Text="X Limit-"/>
+	<INFO  Director="INPORT"  Name="GX04(YORG)"     LogicAddr="3"    PhysicAddr="0"   Attribute="0"  Polarity="0"   Display="1"  Text="Y ORG"/>
+	<INFO  Director="INPORT"  Name="GX05(YLIM+)"    LogicAddr="4"    PhysicAddr="14"  Attribute="2"  Polarity="0"   Display="1"  Text="Y Limit+"/>
+	<INFO  Director="INPORT"  Name="GX06(YLIM-)"    LogicAddr="5"    PhysicAddr="15"  Attribute="2"  Polarity="0"   Display="1"  Text="Y Limit-"/>
+	<INFO  Director="INPORT"  Name="GX07(ZORG)"     LogicAddr="6"    PhysicAddr="1"   Attribute="0"  Polarity="0"   Display="1"  Text="Z ORG"/>
+	<INFO  Director="INPORT"  Name="GX08(ZLIM+)"    LogicAddr="7"    PhysicAddr="2"   Attribute="2"  Polarity="0"   Display="1"  Text="Z Limit+"/>
+	<INFO  Director="INPORT"  Name="GX09(ZLIM-)"    LogicAddr="8"    PhysicAddr="3"   Attribute="2"  Polarity="0"   Display="1"  Text="Z Limit-"/>
+
+	<INFO  Director="INPORT"  Name="GX10"           LogicAddr="18"   PhysicAddr="-1"  Attribute="0"  Polarity="0"   Display="0"  Text="Cycle Start"/>
+	<INFO  Director="INPORT"  Name="GX10"           LogicAddr="9"    PhysicAddr="4"   Attribute="0"  Polarity="0"   Display="1"  Text="GX10"/>
+
+	<INFO  Director="INPORT"  Name="GX11"        	LogicAddr="13"   PhysicAddr="-1"  Attribute="0"  Polarity="0"   Display="0"  Text="Cycle Stop"/>
+	<INFO  Director="INPORT"  Name="GX11"        	LogicAddr="10"   PhysicAddr="5"   Attribute="0"  Polarity="0"   Display="1"  Text="GX11"/>
+
+	<INFO  Director="INPORT"  Name="GX12"        	LogicAddr="21"   PhysicAddr="-1"  Attribute="2"  Polarity="0"   Display="0"  Text="Overtravel Protection of Tool Measurement"/>
+	<INFO  Director="INPORT"  Name="GX12"        	LogicAddr="11"   PhysicAddr="6"   Attribute="0"  Polarity="0"   Display="1"  Text="GX12"/>
+
+	<INFO  Director="INPORT"  Name="GX13"        	LogicAddr="20"   PhysicAddr="-1"    Attribute="0"  Polarity="0"   Display="0"  Text="pause"/>
+	<INFO  Director="INPORT"  Name="GX13"        	LogicAddr="12"   PhysicAddr="7"   Attribute="0"  Polarity="0"   Display="1"  Text="GX13"/>
+
+	<INFO  Director="INPORT"  Name="GX14"           LogicAddr="19"   PhysicAddr="8"   Attribute="0"  Polarity="0"   Display="1"  Text="GX14"/>
+	<INFO  Director="INPORT"  Name="GX15"           LogicAddr="14"   PhysicAddr="9"   Attribute="1"  Polarity="0"   Display="1"  Text="Estop"/>
+	<INFO  Director="INPORT"  Name="GX16"           LogicAddr="15"   PhysicAddr="10"  Attribute="0"  Polarity="0"   Display="1"  Text="Tool Measuring"/>
+	<INFO  Director="INPORT"  Name="GPI16"          LogicAddr="16"   PhysicAddr="16"  Attribute="1"  Polarity="0"   Display="1"  Text="LCD"/>
+	<INFO  Director="INPORT"  Name="ALAM"      	LogicAddr="17"   PhysicAddr="32"  Attribute="1"  Polarity="0"   Display="1"  Text="ESTOP2"/>
+
+	<INFO  Director="OUTPORT"  Name="GY13(SP-)"     LogicAddr="0"    PhysicAddr="5"   Attribute="12"  Polarity="0"   Display="1"  Text="Spin CCW"/>
+	<INFO  Director="OUTPORT"  Name="GY14(SP+)"     LogicAddr="1"    PhysicAddr="4"   Attribute="12"  Polarity="0"   Display="1"  Text="Spin CW"/>
+	<INFO  Director="OUTPORT"  Name="GY15(S_2)"     LogicAddr="2"    PhysicAddr="10"  Attribute="10"  Polarity="0"   Display="1"  Text="S_2"/>
+	<INFO  Director="OUTPORT"  Name="GY16(S_1)"     LogicAddr="3"    PhysicAddr="9"   Attribute="10"  Polarity="0"   Display="1"  Text="S_1"/>
+	<INFO  Director="OUTPORT"  Name="GY17(S_0)"     LogicAddr="4"    PhysicAddr="8"   Attribute="10"  Polarity="0"   Display="1"  Text="S_0"/>
+
+	<INFO  Director="OUTPORT"  Name="GY18"       	LogicAddr="16"   PhysicAddr="-1"  Attribute="10"  Polarity="0"   Display="0"  Text="Yellow LED"/>
+	<INFO  Director="OUTPORT"  Name="GY18"       	LogicAddr="5"    PhysicAddr="-1"  Attribute="10"  Polarity="0"   Display="0"  Text="Workpiece Cool"/>
+	<INFO  Director="OUTPORT"  Name="GY18"       	LogicAddr="25"    PhysicAddr="14"  Attribute="10"  Polarity="0"   Display="1"  Text="Cylinder 1"/>
+
+	<INFO  Director="OUTPORT"  Name="GY19"     	LogicAddr="17"   PhysicAddr="-1"  Attribute="10"  Polarity="0"   Display="0"  Text="Green Led"/>
+	<INFO  Director="OUTPORT"  Name="GY19"     	LogicAddr="6"    PhysicAddr="-1"  Attribute="11"  Polarity="0"   Display="0"  Text="Spin Cool"/>
+	<INFO  Director="OUTPORT"  Name="GY19"     	LogicAddr="26"    PhysicAddr="13"  Attribute="10"  Polarity="0"   Display="1"  Text="Cylinder 2"/>
+
+	<INFO  Director="OUTPORT"  Name="GY20"      	LogicAddr="18"   PhysicAddr="-1"  Attribute="10"  Polarity="0"   Display="0"  Text="Red Led"/>
+	<INFO  Director="OUTPORT"  Name="GY20"      	LogicAddr="7"    PhysicAddr="-1"  Attribute="10"  Polarity="0"   Display="0"  Text="Auto Oil"/>
+	<INFO  Director="OUTPORT"  Name="GY20"      	LogicAddr="27"    PhysicAddr="12"  Attribute="10"  Polarity="0"   Display="1"  Text="Cylinder 3"/>
+
+	<INFO  Director="OUTPORT"  Name="GY20"      		LogicAddr="19"    PhysicAddr="21"  Attribute="10"  Polarity="0"   Display="0"  Text="RUN_LED"/>
+	<INFO  Director="OUTPORT"  Name="SPIN_LED"      	LogicAddr="20"    PhysicAddr="20"  Attribute="10"  Polarity="0"   Display="0"  Text="SPIN_LED"/>
+	<INFO  Director="OUTPORT"  Name="ALM_LED"      		LogicAddr="21"    PhysicAddr="19"  Attribute="10"  Polarity="0"   Display="0"  Text="ALM_LED"/>
+	<INFO  Director="OUTPORT"  Name="GY18_LED"      	LogicAddr="22"    PhysicAddr="18"  Attribute="10"  Polarity="0"   Display="0"  Text="GY18_LED"/>
+	<INFO  Director="OUTPORT"  Name="GY19_LED"      	LogicAddr="23"    PhysicAddr="17"  Attribute="10"  Polarity="0"   Display="0"  Text="GY19_LED"/>
+	<INFO  Director="OUTPORT"  Name="GY20_LED"      	LogicAddr="24"    PhysicAddr="16"  Attribute="10"  Polarity="0"   Display="0"  Text="GY20_LED"/>
+	<INFO  Director="OUTPORT"  Name="LCD"    	LogicAddr="8"    PhysicAddr="1"   Attribute="10"  Polarity="0"   Display="1"  Text="LCD Reset"/>
+
+</Port>

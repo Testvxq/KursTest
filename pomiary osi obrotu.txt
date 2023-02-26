@@ -1,0 +1,10 @@
+Oś obrotu do pierścienia(pivot): 299,863
+Pomiar końcówki stożka bez nakrętki (z cwn): -342.325
+
+
+//pomair pivotu
+//z-512.196 a-90 \\\walek fi 16 (-8mm)
+//Z- -125.496\\ a0 z walkiem
+//z- -220.333\\ a0 bez walka i nakretki
+//dlugosc walka 94,837
+//pivot z walkiem 394,7

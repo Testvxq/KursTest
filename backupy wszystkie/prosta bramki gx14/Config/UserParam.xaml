@@ -1,0 +1,24 @@
+﻿<!-- 
+     用户自定义参数：该文件用于用户添加自定义参数，最多可以添加20个自定义参数。
+     添加后的参数可以在脚本和public.dat子程序中访问，参数值只能在参数列表中被修改，
+     不能在luui模块和public.dat子程序中修改。
+     脚本文件【auxifunction.as】中通过调用get_user_param(index)函数访问用户自定义参数，index位参数在列表中的序号
+     
+     USERPARAM1对应的序号是1，表中第n个参数的name必须严格为USERPARAMn
+     子程序通过命名变量访问用户自定义参数，#USERPARAM1表示USERPARAM1
+     
+     name      参数名称，必须严格为USERPARAMn，最后的n为序号
+     type	     参数类型，0:布尔型(是或否)，1:整数， 2:浮点数
+     value     自定义参数初始值, 对于布尔型（no为否，yes为是）
+     unit 	   单位，用于在参数类表中进行显示
+     multiple  显示放大倍数，参数列表显示时会将参数的值乘于放大倍数
+     	   
+     chntext    中文标题 描述要精简 否则显示不全
+     chndescrip 中文描述
+	 engtext    英文标题 描述要精简 否则显示不全
+	 engdescrip 英文描述
+-->
+<PARAM>
+<ITEM name = USERPARAM1 type = "1" value = "0"  unit = "mm" multiple = "1" paramtype = "0" chntext = "自定义参数1"  chndescrip = "自定义参数1描述"  engtext = "user param 1" engdescrip = "user param 1" />
+<ITEM name = USERPARAM2 type = "0" value = "yes"  unit = "" multiple = "1" paramtype = "1" chntext = "自定义参数2"  chndescrip = "自定义参数2描述"  engtext = "user param 2" engdescrip = "user param 2"/>
+</PARAM>
